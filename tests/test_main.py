@@ -23,4 +23,4 @@ def test_save_and_get_items():
         description='Demo Note 2',
     ), backend)
     notes = get_notes(backend)
-    assert len(notes) == 1
+    assert len(notes) == 2
