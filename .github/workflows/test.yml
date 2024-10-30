@@ -38,6 +38,11 @@ jobs:
       - name: Run tests with pytest
         #Using all available CPU-cores with -n auto
         #Measure code coverage during the test with --cov
-        run: pytest -n auto --cov=note_api tests/
+        run: pytest -n auto --cov=note_api tests/ --cov-report=xml
 
       - run: echo "Pytest has been executed. Job status is ${{ job.status }}."
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
