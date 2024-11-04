@@ -32,5 +32,6 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
-          snyk monitor
+          snyk monitor --all-projects
           snyk test --all-projects
+          snyk code test
