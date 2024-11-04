@@ -14,5 +14,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - with:
-          command: monitor
-          args: --file=requirements.txt
+          command: monitor --file=requirements.txt
