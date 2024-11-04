@@ -5,32 +5,32 @@ on:
     branches:
       - main
 
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: '3.12'
-#          cache: 'pip'
-#          cache-dependency-path: '**/requirements*.txt'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: '**/requirements*.txt'
 
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install -r requirements.txt && pip install -r requirements-dev.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt && pip install -r requirements-dev.txt
 
-#      - name: Install Snyk CLI
-#        run: npm install -g snyk
+      - name: Install Snyk CLI
+        run: npm install -g snyk
 
-#      - name: Snyk Security Scan
-#        env:
-#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#        run: |
-#          snyk monitor
-#          snyk test --all-projects
+      - name: Snyk Security Scan
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk monitor
+          snyk test --all-projects
